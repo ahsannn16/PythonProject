@@ -23,7 +23,7 @@ def take_command():
         # print(r)
         with sr.Microphone() as source:
             print("listening")
-            text = "Hello This is your virtual assistant chiku. How can I help you?"
+            text = "Hello This is your virtual assistant friday. How can I help you?"
             print(text)
             engine.say(text)
             engine.runAndWait()
@@ -33,8 +33,8 @@ def take_command():
             command = listener.recognize_google(voice)
             command = command.lower()
 
-            if 'coco' in command:
-                command = command.replace('chiku', '')
+            if 'friday' in command:
+                command = command.replace('friday', '')
                 print(command)
                 engine.say(command)
                 engine.runAndWait()
@@ -44,7 +44,7 @@ def take_command():
         pass
     return command
 
-def run_coco(): 
+def run_friday(): 
     command = take_command().lower()
     print(command)
     if 'play' in command:
@@ -63,53 +63,6 @@ def run_coco():
         print(info)
         talk(info)
 
-run_coco()
+run_friday()
 
 
-# engine.say(voice)
-# engine.runAndWait()
-
-
-# def talk(text):
-#     engine.say(text)
-#     engine.runAndWait()
-#
-#
-# def take_command():
-#     try:
-#         with sr.Microphone() as source:
-#             print('listening...')
-#             voice = listener.listen(source)
-#             command = listener.recognize_google(voice)
-#             command = command.lower()
-#             if 'alexa' in command:
-#                 command = command.replace('alexa', '')
-#                 print(command)
-#     except:
-#         pass
-#     return command
-#
-#
-# def run_alexa():
-#     command = take_command()
-#     print(command)
-#     if 'play' in command:
-#         song = command.replace('play', '')
-#         talk('playing ' + song)
-#         pywhatkit.playonyt(song)
-#     elif 'time' in command:
-#         time = datetime.datetime.now().strftime('%I:%M %p')
-#         talk('Current time is ' + time)
-#     elif 'who the heck is' in command:
-#         person = command.replace('who the heck is', '')
-#         info = wikipedia.summary(person, 1)
-#         print(info)
-#         talk(info)
-#     elif 'joke' in command:
-#         talk(pyjokes.get_joke())
-#     else:
-#         talk('Please say the command again.')
-#
-#
-# while True:
-#     run_alexa()
